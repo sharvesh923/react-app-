@@ -4,7 +4,6 @@ pipeline{
     stages{
         stage('build npm artifact'){
             steps{
-                checkout scmGit(branches: [[name: '*/Dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sharvesh923/react-app-.git']])
                 sh 'npm install'
             }
         }
