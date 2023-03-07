@@ -10,6 +10,7 @@ pipeline{
         stage('build image with build.sh'){
             steps{
                 checkout scmGit(branches: [[name: '*/Dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sharvesh923/react-app-.git']])
+                 sh 'chmod +x ./build.sh'
                  sh './build.sh'
             }
         }
