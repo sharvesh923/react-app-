@@ -15,7 +15,7 @@ pipeline{
             }
         }
         stage('push image to dev repo'){
-            step{
+            steps{
                 withCredentials([string(credentialsId: 'docker-hub-pwd', variable: 'docker-pwd')]) {
                  sh 'docker login -u sharvesh -p ${docker-pwd}'
                  sh 'docker tag react-app:latest dev/react-app:latest'
