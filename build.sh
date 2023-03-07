@@ -1,4 +1,4 @@
 #!/bin/bash
-apt-get install docker.io -y
-apt-get install docker-compose -y
-docker build -t react-app .
+sudo apt-get install docker.io -y
+sudo apt-get install docker-compose -y
+sudo docker build -t react-app .
