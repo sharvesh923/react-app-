@@ -7,17 +7,6 @@ pipeline{
                 sh 'npm install'
             }
         }
-        stage('Switch to root user') {
-    steps {
-        script {
-            def password = input(
-                message: 'Enter sudo password:',
-                parameters: [
-                    [$class: 'PasswordParameterDefinition', defaultValue: '', name: 'PASSWORD']
-                ]
-            )
-            sh "echo '${password}' | sudo -S su -"
-        }
         stage('build image with build.sh'){
             steps{
                 checkout scmGit(branches: [[name: '*/Dev']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sharvesh923/react-app-.git']])
