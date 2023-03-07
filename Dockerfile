@@ -1,2 +1,2 @@
 FROM nginx
-COPY ./build/* /var/www/html
+COPY ./build/* /var/www/html/
