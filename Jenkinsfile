@@ -16,22 +16,13 @@ pipeline{
             }
         }
         stage('push image to dev repo'){
-            when {
-                expression { BRANCH_NAME == 'Dev' }
-            }
             steps{
-                scripts{
-                    withCredentials([string(credentialsId: 'Docker_username', variable: 'docker_username'), string(credentialsId: 'Docker_Cred', variable: 'docker_password')]) {
-                    sh 'sudo docker login -u sharvesh923 -p ${docker_password}'
-                        def image_name= "sharvesh923/dev:react-app"
-                        sh 'sudo docker tag react-app:latest ${image_name}'
-                        sh 'sudo docker push ${image_name}:${env.BUILD_ID}'
-                        echo "successfully images pushed to Dev repo"   
-                    }   
-                    
+                withCredentials([string(credentialsId: 'Docker_username', variable: 'docker_username'), string(credentialsId: 'Docker_Cred', variable: 'docker_password')]) {
+                 sh 'sudo docker login -u sharvesh923 -p ${docker_password}'
+                 sh 'sudo docker tag react-app:latest sharvesh923/dev:react-app'
+                 sh 'sudo docker push sharvesh923/dev:react-app'
                 }
             }
-        }
         stage('push image to Prod repo'){
             when {
                 expression { BRANCH_NAME == 'master' }
@@ -43,11 +34,11 @@ pipeline{
                             def image_name= "sharvesh923/prod:react-app"
                             sh 'sudo docker tag react-app:latest ${image_name}'
                             sh 'sudo docker push ${image_name}:${env.BUILD_ID}'
-                            echo "successfully images pushed to Prod repo"
+                            echo "images pushed to Prod repo"
                         }
                     }
                 }
-            }
+            }    
         }
     }
 }
