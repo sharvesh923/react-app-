@@ -26,7 +26,7 @@ pipeline{
                         def image_name= "sharvesh923/dev:react-app"
                         sh 'sudo docker tag react-app:latest ${image_name}'
                         sh 'sudo docker push ${image_name}:${env.BUILD_ID}'
-                        echo "images pushed to Dev repo"   
+                        echo "successfully images pushed to Dev repo"   
                     }   
                     
                 }
@@ -43,7 +43,7 @@ pipeline{
                             def image_name= "sharvesh923/prod:react-app"
                             sh 'sudo docker tag react-app:latest ${image_name}'
                             sh 'sudo docker push ${image_name}:${env.BUILD_ID}'
-                            echo "images pushed to Prod repo"
+                            echo "successfully images pushed to Prod repo"
                         }
                     }
                 }
