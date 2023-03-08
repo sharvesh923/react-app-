@@ -27,7 +27,7 @@ pipeline{
         }
         stage('push image to Prod repo'){
             when {
-              expression { BRANCH_NAME == 'staging' }
+              expression { BRANCH_NAME == 'master' }
             }
             steps {
                 withCredentials([string(credentialsId: 'Docker_username', variable: 'docker_username'), string(credentialsId: 'Docker_Cred', variable: 'docker_password')]) {
