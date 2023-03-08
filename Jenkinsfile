@@ -17,7 +17,7 @@ pipeline{
         }
         stage('push image to dev repo'){
              when {
-              expression { BRANCH_NAME != 'Dev' }
+              expression { BRANCH_NAME == 'Dev' }
             }
             steps{
                 withCredentials([string(credentialsId: 'Docker_username', variable: 'docker_username'), string(credentialsId: 'Docker_Cred', variable: 'docker_password')]) {
