@@ -34,7 +34,7 @@ pipeline{
                 withCredentials([string(credentialsId: 'Docker_username', variable: 'docker_username'), string(credentialsId: 'Docker_Cred', variable: 'docker_password')]) {
                  sh 'sudo docker login -u sharvesh923 -p ${docker_password}'
                  sh 'sudo docker tag react-app:latest sharvesh923/prod:react-app-1'
-                 sh 'sudo docker push sharvesh923/prod:react-app-1'
+                 sh 'sudo docker push sharvesh923/prod:react-app-1
                  echo "images pushed to Prod repo."
                 }           
             }
