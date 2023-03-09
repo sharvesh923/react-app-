@@ -21,10 +21,8 @@ pipeline{
             }
             steps{
                 withCredentials([string(credentialsId: 'Docker_username', variable: 'docker_username'), string(credentialsId: 'Docker_Cred', variable: 'docker_password')]) {
-                 sh 'sudo docker login -u sharvesh923 -p ${docker_password}'
-                 sh 'sudo docker tag react-app:latest sharvesh923/dev:react-app'
-                 sh 'sudo docker push sharvesh923/dev:react-app'
-                 echo "images pushed to Dev repo."
+                sh 'chmod +x ./deploy.sh'
+                sh './deploy.sh'
                 }
             }
         }
