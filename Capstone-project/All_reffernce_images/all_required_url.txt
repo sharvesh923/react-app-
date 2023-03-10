@@ -1,0 +1,3 @@
+Git hub url (https://github.com/sharvesh923/react-app-capstone-project)
+Deployed site url (http://ec2-44-202-128-127.compute-1.amazonaws.com/)
+Docker images_names (For Dev repo "dev:react-app")  (For Prod repo "prod:react-app-1")
